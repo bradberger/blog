@@ -1,0 +1,25 @@
+---
+indexes:
+    tag: "tags"
+    category: "categories"
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+builddrafts: false
+baseurl: 'http://localhost:1313'
+title: 'Brad Berger'
+copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+languageCode: "en-us"
+author:
+  name: "Brad Berger"
+params:
+  Subtitle: "Writing small, simple, beautiful code."
+  AuthorName: "Brad Berger"
+  GitHubUser: "bradberger"
+  TwitterUser: "berger_brad"
+  PublicEmail: "brad@bradb.net"
+  LinkedInUser: "bmberger"
+  SidebarRecentLimit: 5
+permalinks:
+  post: /:year/:month/:title/
+...

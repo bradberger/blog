@@ -1,0 +1,46 @@
+{{ template "chrome/header.html" . }}
+{{ template "chrome/menu.html" . }}
+
+<div class="subhead">
+    <div class="container">
+        <h3>Blog</h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="page-header">
+                <h1 class="post-title">
+                    Blog
+                </h1>
+            </div>
+            {{ range first 10 .Data.Pages }}
+            <section class="post post-preview">
+                <header class="post-header home">
+                    <h2 class="post-title">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </h2>
+                    <h4 class="post-description">{{ .Description }}</h4>
+                    <h5 class="post-meta-info">
+                        {{ .Date.Format "Monday Jan 2, 2006" }}
+                        <span>{{ .ReadingTime }} minute read, ~{{ .FuzzyWordCount }} words</span>
+                    </h5>
+                </header>
+                <p>{{ .Summary }}</p>
+                <p class="text-center margin-top">
+                    <a class="btn btn-default" href="{{ .Permalink }}">Read more</a>
+                </p>
+            </section>
+            {{ end }}
+            <div class="margin-top">&nbsp;</div>
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-1">
+            {{ partial "sidebar.html" . }}
+        </div>
+    </div>
+</div>
+
+{{ partials "footer.html" . }}
+

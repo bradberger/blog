@@ -1,0 +1,46 @@
+{{ template "chrome/header.html" . }}
+{{ template "chrome/menu.html" . }}
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ .Title }}</h1>
+                    <h2 class="subheading">All pages in category {{ .Title }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {{ range .Data.Pages }}
+            <div class="post-preview">
+                <a href="{{.RelPermalink}}">
+                    <h2 class="post-title">
+                        {{ .Title }}
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {{ .Description }}
+                    </h3>
+                </a>
+                <p class="post-meta">
+                    <small class="text-muted">
+                        {{ .Date.Format "Monday Jan 2, 2006" }}
+                        <span class="spacer-left">
+                            {{ .ReadingTime }} minute read, ~{{ .FuzzyWordCount }} words
+                        </span>
+                    </small>
+                </p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{ template "chrome/footer.html" . }}
+

@@ -1,0 +1,43 @@
+{{ template "chrome/header.html" . }}
+{{ template "chrome/menu.html" . }}
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ .Title }}</h1>
+                    <h2 class="subheading">{{ .Description }}</h2>
+                    <p class="post-meta">
+                        {{ .Date.Format "Monday Jan 2, 2006" }} in
+                        {{ range .Params.categories }}
+                            <a href="/categories/{{ . }}" class="capitalize">{{ . }}</a>,
+                        {{ end }}
+                        <span class="spacer-left">
+                            {{ .ReadingTime }} minute read, ~{{ .FuzzyWordCount }} words
+                        </span>
+                        <br>
+                        <small class="text-muted">
+                            Tagged with:
+                            {{ range .Params.tags }}
+                                <a href="/tags/{{ . }}" class="label label-default spacer-left">{{ . }}</a>
+                            {{ end }}
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</article>
+
+{{ template "chrome/footer.html" . }}

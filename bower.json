@@ -1,0 +1,24 @@
+{
+    "name": "bradb-net",
+    "version": "0.1.0",
+    "authors": [
+        "Brad Berger <brad@bitola.co>"
+    ],
+    "description": "Website now at bitola.co website",
+    "dependencies": {
+        "bootstrap": "~3.1",
+        "angular": "~1.3",
+        "angular-touch": "~1.3",
+        "angular-mocks": "~1.3",
+        "angular-route": "~1.3"
+    },
+    "license": "MPL",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "static/src/components",
+        "test",
+        "tests"
+    ]
+}

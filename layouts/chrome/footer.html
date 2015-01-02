@@ -1,0 +1,94 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row content-list">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3>Content by category and tag</h3>
+                <p>
+                    <strong>Categories:</strong>
+                    {{ range $key, $value := .Site.Taxonomies.categories.ByCount }}
+                    <a href="/categories/{{ $value.Name }}" class="spacer-left">
+                        {{ $value.Name }} ({{ $value.Count }})
+                    </a>
+                    {{ end }}
+                </p>
+                <p>
+                    <strong>Tags:</strong>
+                    {{ range $key, $value := .Site.Taxonomies.tags.ByCount }}
+                    <a href="/tags/{{ $value.Name }}" class="spacer-left">
+                        {{ $value.Name }}
+                        <small>({{ $value.Count }})</small>
+                    </a>
+                    {{ end }}
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    {{ if .Site.Params.TwitterUser }}
+                    <li>
+                        <a href="https://twitter.com/{{ .Site.Params.TwitterUser }}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ if .Site.Params.GitHubUser }}
+                    <li>
+                        <a href="https://github.com/{{ .Site.Params.GitHubUser }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ if .Site.Params.PublicEmail }}
+                    <li>
+                        <a href="mailto:{{ .Site.Params.PublicEmail }}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-send fa-stack-1x fa-inverse"></i>
+                                </span>
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ if .Site.Params.LinkedInUser }}
+                    <li>
+                        <a href="https://linkedin.com/in/{{ .Site.Params.LinkedInUser }}">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ if .RSSLink }}
+                    <li>
+                        <a href="{{ .RSSLink }}">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p class="copyright muted">
+                    <a rel="license" href="//creativecommons.org/licenses/by/4.0/">
+                        <img alt="Creative Commons License" src="data:image/png;base64,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">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/g/jquery@2,bootstrap@3(js/bootstrap.min.js)"></script>
