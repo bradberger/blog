@@ -22,7 +22,7 @@ Of course, it's also super useful to keep the app size the smallest possible, to
 
 Thankfully, the process is quite simple. So here goes.
 
-## Excluding Files Via the  `project.properties` File
+# Excluding Files Via the  `project.properties` File
 
 So far, it seems the best place to make this happen is the `platforms/android/project.properties` file. That file should be checked into version control, so it's a perfect place to set up the exclude filters. If you set them up in other places, it's more likely they'll get lost or overwritten over the course of time.
 
@@ -39,7 +39,7 @@ For my particular use case, I added the `node_modules` folder like this:
 	aapt.ignore.assets=!.svn:!.git:.*:<dir>_*:!CVS:!thumbs.db:!picasa.ini:!*.scc:*~:!node_modules
 
 
-## Conclusion
+# Conclusion
 
 That's it! It's pretty straight forward. Taking advantage of this option will allow you to reduce the APK size and avoid errors that come up under certain situations.
 

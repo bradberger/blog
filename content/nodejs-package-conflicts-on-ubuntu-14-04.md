@@ -17,7 +17,7 @@ If you're developing with Cordova/PhoneGap/Ionic apps on the Ubuntu platform, ch
 
 For a while now, the `nodejs` and `nodejs-legacy` packages have collided around a singe man file. Unfortunately, the simple file collision can break the entire package manager and make it difficult to update anything.
 
-### Add `dkpg --force-overwrite` Flag
+# Add `dkpg --force-overwrite` Flag
 
 The solution is very simple. Just add the `dkpg --force-overwrite` flag to your `apt-get` commands.
 
@@ -27,7 +27,7 @@ So this:
 sudo apt-get install cordova-cli
 ```
 
-becomes:
+becomes: 
 
 ```bash
 sudo apt-get -o Dpkg::Options::="--force-overwrite" install cordova-cli

@@ -1,0 +1,195 @@
+// Core variables and mixins
+@import "../bower_components/bootstrap/less/variables.less";
+@import "../bower_components/bootstrap/less/mixins.less";
+
+// Reset
+@import "../bower_components/bootstrap/less/normalize.less";
+
+// Core CSS
+@import "../bower_components/bootstrap/less/scaffolding.less";
+@import "../bower_components/bootstrap/less/type.less";
+@import "../bower_components/bootstrap/less/grid.less";
+@import "../bower_components/bootstrap/less/forms.less";
+
+// Components
+@import "../bower_components/bootstrap/less/navs.less";
+@import "../bower_components/bootstrap/less/navbar.less";
+@import "../bower_components/bootstrap/less/utilities.less";
+@import "../bower_components/bootstrap/less/responsive-utilities.less";
+
+@import "fira.less";
+@import "variables.less";
+@import "mixins.less";
+
+// Global Components
+body {
+  font-size: 20px;
+  color: @gray-dark;
+}
+
+// -- Typography
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+  a {
+    text-decoration: underline;
+  }
+}
+
+a {
+  color: @gray-dark;
+  &:hover,
+  &:focus {
+    color: @brand-primary;
+  }
+}
+
+a img {
+  &:hover,
+  &:focus {
+    cursor: zoom-in;
+  }
+}
+
+hr.small {
+  max-width: 100px;
+  margin: 30px auto;
+  border: none;
+  border-top: 1px solid @gray;
+}
+
+.intro-header {
+  * {
+    color: @white-faded;
+  }
+  background: @gray-dark;
+  .background-cover;
+  // NOTE: Background images are set within the HTML using inline CSS!
+  margin-bottom: 50px;
+  .site-heading,
+  .post-heading,
+  .page-heading {
+    padding: 100px 0 50px;
+    @media only screen and (min-width: 768px) {
+      padding: 150px 0;
+    }
+  }
+  .site-heading,
+  .page-heading {
+    text-align: center;
+    h1 {
+      margin-top: 0;
+      font-size: 50px;
+    }
+    .subheading {
+      font-size: 24px;
+      line-height: 1.1;
+      display: block;
+      .sans-serif;
+      font-weight: 300;
+      margin: 10px 0 0;
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  }
+
+  .post-heading {
+    h1 {
+      font-size: 35px;
+    }
+    .subheading,
+    .meta {
+      line-height: 1.1;
+      display: block;
+      font-weight: 300;
+      margin-bottom: .5em;
+    }
+    .subheading {
+      .sans-serif;
+      font-size: 24px;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+    .post-meta {
+      .sans-serif;
+      font-weight: 300;
+      margin-top: 8px;
+    }
+    .meta {
+      .serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 20px;
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 55px;
+      }
+      .subheading {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.spacer-left {
+  margin-left: .5em;
+}
+.navbar, .navbar-default {
+  margin: 0 !important;
+}
+.navbar-default {
+  .navbar-brand {
+    font-weight: 800;
+  }
+  .nav {
+    li {
+      a {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+    }
+    &.navbar-right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0;
+      > li {
+        display: inline-block !important;
+      }
+    }
+  }
+}
+
+// Header
+.site-heading {
+  a {
+    .fa-stack-2x {
+      color: @gray-darker;
+    }
+    .fa-stack-1x {
+      color: @gray;
+    }
+  }
+}
+
+.post-toc {
+  border-bottom: 1px solid @gray-light;
+  padding-bottom: @padding-large-vertical;
+}
+
+@media (max-width: @screen-xs-max) {
+  .site-heading, .post-heading {
+    padding: @padding-small-vertical @padding-small-horizontal !important;
+  }
+  a, .btn {
+    display: inline-block;
+    min-height: 48px;
+    min-width: 48px;
+  }
+}

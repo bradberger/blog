@@ -21,7 +21,7 @@ Installing APC and/or Xdebug for PHP on Ubuntu 14.04 isn't hard, but requires kn
    
 ## Install Xdebug
 
-#### If You Don't Need Xdebug on CLI
+## If You Don't Need Xdebug on CLI
 
 If you need Xdebug only through Apache, installing it is as simple as:
 
@@ -31,7 +31,7 @@ If you need Xdebug on the command-line (CLI) then it's a bit more work, since it
 
 If you don't need it on the command-line, skip the following directions!
 
-#### If You Do Need XDebug on CLI
+## If You Do Need XDebug on CLI
 
 If you do need Xdebug on the CLI, though, it currently needs to be installed via PECL.
 
@@ -68,7 +68,7 @@ Then to enable it via CLI:
 
     sudo ln -s /etc/php5/mods-available/xdebug.ini /etc/php5/cli/conf.d/20-xdebug.ini
 
-## Install APC
+# Install APC
 
 The APC install is part of the `php-apc` package, and it installs the `php-apc` and `php5-apcu` packages. The `php5-apcu` package is necessary for APC support in PHP versions 5.5 and above.
 
@@ -76,8 +76,7 @@ So all you need is a simple:
 
 	sudo apt-get install php-apc
     
-
-## Conclusion
+# Conclusion
 
 APC and Xdebug are two extremely useful tools for PHP development. Hopefully this has helped you get them up and running on Ubuntu 14.04 LTS (Trusty Tahr).
 

@@ -17,7 +17,7 @@ On occasion, or perhaps even more frequently, you may want to use GulpJS in comb
 
 We're going to focus on the most secure option - using SSH over FTP.
 
-## Setup
+# Setup
 
 Install `gulp-sftp` locally. It's as simple as: 
 
@@ -27,7 +27,7 @@ After that, you can load it with a simple:
 
 	var sftp = require("gulp-sftp");
 
-## The Task
+# The Task
 Here's a sample Gulp task to get us started. It compiles some imaginary LESS into CSS, and minifying it at the same time.
 
 For the time being, we'll assume you're already familiar with the `less()` and `minifyCSS()` functions.
@@ -43,24 +43,24 @@ For the time being, we'll assume you're already familiar with the `less()` and `
 
 To make this work, you'll need to configure the sftpOpts variable.
 
-## Configuration
+# Configuration
 Configuration is done by passing an object with a predefined set of keys to the `sftp()` function. Here are all the available options, copied over from the [gulp-sftp docs](https://www.npmjs.org/package/gulp-sftp)
 
-#### options.host
+## options.host
 
 *Required
 Type: String*
 
-#### options.port
+## options.port
 
 *Type: Number, Default: 22*
 
-#### options.user
+## options.user
 
 *Type: String
 Default: 'anonymous'*
 
-#### options.pass
+## options.pass
 
 *Type: String, Default: null*
 
@@ -70,42 +70,42 @@ If this option is not set, gulp-sftp assumes the user is using private key authe
 
 If you intend to use anonymous login, use the value '@anonymous'.
 
-#### options.remotePath
+## options.remotePath
 
 *Type: String, Default: '/'*
 
 The remote path to upload too. This path should exist, though the child directories that house your files do not need to.
 
-#### options.key
+## options.key
 
 *type String or Object Default: null*
 
 A key file location. If an object, please use the format {location:'/path/to/file',passphrase:'secretphrase'}
 
-#### options.passphrase
+## options.passphrase
 
 *type String, Default: null*
 
 A passphrase for secret key authentication. Leave blank if your key does not need a passphrase.
 
-#### options.keyContents
+## options.keyContents
 
 *type String, Default: null*
 
 If you wish to pass the key directly through gulp, you can do so by setting it to options.keyContents.
-#### options.auth
+## options.auth
 
 *type String, Default: null*
 
 An identifier to access authentication information from .ftppass see Authentication for more information.
-#### options.authFile
+## options.authFile
 
 *type String, Default: .ftppass*
 
 A path relative to the project root to a JSON formatted file containing auth information.
 
 
-## Simplifying Configuration
+# Simplifying Configuration
 
 It can be a pain to have to type that configuration for every Gulp task. One trick is to simplifiy it with a function that returns the values you want.
 
@@ -127,13 +127,13 @@ Using this at the end of your task pipe would result in the file being uploaded 
 
 It's an easy way to keep your `gulpfile.js` nice and clean.
 
-## Known Issues
+# Known Issues
 
 There is a known issue with SSH connections unexpectedly ending under certain condidtions. Through experience, this seems to be direcly related to the size of the file.
 
 Right now there doesn't seem to be a workaround for this. It shouldn't be a major issue unless working with very large files. I've only run into it so far when trying to bundle several libraries together - jQuery, AngularJS, Bootstrap, shims, and custom code. (Just jQuery/Angular/Bootstrap works, for instance).
 
-## Conclusion
+# Conclusion
 
 Hope that comes in hand! A big shout out to Matthew Drake, the plugin's author. 
 

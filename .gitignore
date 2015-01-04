@@ -3,3 +3,4 @@ node_modules/
 public/
 src/bower_components/
 tmp/
+push.sh

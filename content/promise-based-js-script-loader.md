@@ -32,11 +32,11 @@ p.then(function(result) {
 
 The resolved value of a promise can be anything - strings, objects, other promises, etc.
 
-### Promises can be chained
+# Promises can be chained
 
 One cool feature of promises is that they can be chained together using the `Promise.all()` function. It takes an array of promises as an argument and returns a promise. It is resolved when all of the promises passed to it are resolved.
 
-### Promises can be used even after resolved
+# Promises can be used even after resolved
 
 Another neat feature of promises is that the result can be used even after resolution. So in the above example, we can wait `x` seconds and again call then `then()` method, and it will work.
 
@@ -54,7 +54,7 @@ setTimeout(function() {
 
 Even if `p` resolves before the 10 second timeout, the `then()` method still works as planned.
 
-### Making a script loader
+# Making a script loader
 
 So given that, we can build a super simple promise based script loader with a very minimal amount of code. Here's an entire script loader.
 
@@ -79,4 +79,6 @@ s.then(function() {
 
 ```
 
-If you were building a library out of this, obviously it would need some polishing. Still, it's pretty cool. Compressed and gzipped it weighs in at 299 bytes. All  possible due to the power of promises.
+If you were building a library out of this, obviously it would need some polishing. Still, it's pretty cool. Compressed and gzipped it weighs in at 299 bytes. 
+
+All  possible due to the power of promises.

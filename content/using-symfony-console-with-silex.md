@@ -19,7 +19,7 @@ The [Symonfy console component](http://symfony.com/doc/current/components/consol
 Thankfully it's quite easy to get it up and running.
 
 
-## Installing the Provider
+# Installing the Provider
 
 It's easy to install and register the console provider using the `knplabs/console-service-provider` package. Just this to your `composer.json` file:
 	
@@ -44,7 +44,7 @@ The `console.project_directory` seems to require the `"/.."` after the directory
 
 Once that's done, and you've run `composer update` you'll have access to the console object in the `$app["console"]` variable.
 
-## Creating a Command
+# Creating a Command
 
 > *Note* - Since Silex uses Symonfy under the hood, you can refer to the [Symfony Console Component docs](http://symfony.com/doc/current/components/console/introduction.html). The docs are great, and include sections on formatting and testing the commands, so be sure to read them thoroughly, as we won't reproduce them here.
 		
@@ -54,7 +54,7 @@ The `knplabs/console-service-provider` extends the Symfony console a bit, most i
 
 Keep that in mind later on.
 
-### Sample Command 
+## Sample Command 
 
 You're command must extend `Knp\Command\Command`, so define it with:
 
@@ -78,7 +78,7 @@ A complete sample command might look like:
         }
 		        
 
-### The `configure()` Method
+## The `configure()` Method
 
 > *Note* - For the sake of brevity, refer to the [Symfony docs here](http://symfony.com/doc/current/components/console/introduction.html#creating-a-basic-command) for more details.
 
@@ -88,7 +88,7 @@ See the skeleton example above.
 
 
 
-### The `execute()` Method
+## The `execute()` Method
 
 
 > *Note* - Refer to the [Symfony docs here](http://symfony.com/doc/current/components/console/introduction.html#creating-a-basic-command) for more details.
@@ -103,14 +103,14 @@ So a simple `excute()` method is defined as:
         
 
 
-#### Outputting Text
+### Outputting Text
 
 > *Note* There are some great [formatters available](http://symfony.com/doc/current/components/console/helpers/formatterhelper.html) so read up on those if you want to make the console output a bit fancier.
 
 Instead of `echo()` or `print()` you'll use `$output->writeln()` to print lines of text.
 
 
-### Adding the command to your `app/console` file.
+## Adding the command to your `app/console` file.
 
 Following Symfony/Silex patterns, we'll assume you're using a `app/console` file for the actual command-line command.
 
@@ -133,7 +133,7 @@ For each command you created, you'll currently need to add it manaully to the co
 
 Replace `\Path\To\MyCommand` with your command, including it's namespace.
 
-### Running the Command
+# Running the Command
 
 That's it! You should have a working command.
 
@@ -151,7 +151,7 @@ You can run it with the name you previously would have set up in your command's 
 Make sure you replace `app/console` with the actual path to the `app/console` file itself, whatever you may have named it!
 
 
-### Conclusion
+# Conclusion
 
 Adding a console to your Silex app is easy, and adds testability, code organization, and professionalism to your project.
 

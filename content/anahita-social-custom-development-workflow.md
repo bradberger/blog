@@ -19,7 +19,7 @@ If you're working on a website that's powered by Anahita, you'll want to keep up
 
 If you're not familiar with Composer, visit the [project homepage](//getcomposer.org) to get up to speed.
 
-## Updating the Anahita Codebase
+# Updating the Anahita Codebase
 
 Updating the Anahita codebase is trivial with composer. Just `cd` into the root directory and run the following to get the latest and greatest:
 
@@ -30,14 +30,14 @@ composer update
 Before you do that, though, read on.
 
 
-## Avoid Overwriting Your Custom Changes
+# Avoid Overwriting Your Custom Changes
 
 The only issue is that running composer update may obliterate any custom modifications you've made. The solution to that is simple, assuming you're using version control. We'll assume that you're using Git for this example.
 
 *The principles here would apply with other version control systems, and even other projects, not just Anahita.*
 
 
-#### 1. Create a new Anahita source code branch
+## 1. Create a new Anahita source code branch
 First step is to create a new branch. For the purposes of this we'll call it `anahita-master`. To create the branch and git into it, run:
 
 ```bash
@@ -63,7 +63,7 @@ $ git push -u origin anahita-master
 
 The Anahita core updates are now committed. Now on to the next step.
 
-#### 2. Merge the updates
+## 2. Merge the updates
 
 Switch back to your development branch. We'll assume it's `develop` here for simplicity, but of course it's probably something else.
 

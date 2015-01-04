@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
+
                     <h1>{{ .Title }}</h1>
                     <h2 class="subheading">{{ .Description }}</h2>
                     <p class="post-meta">
@@ -14,7 +15,7 @@
                             <a href="/categories/{{ . }}" class="capitalize">{{ . }}</a>,
                         {{ end }}
                         <span class="spacer-left">
-                            {{ .ReadingTime }} minute read, ~{{ .FuzzyWordCount }} words
+                            {{ .ReadingTime }} minute read, ~{{ .WordCount }} words
                         </span>
                         <br>
                         <small class="text-muted">
@@ -34,10 +35,29 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-toc">
+                    <h3>Table of Contents</h3>
+                    {{ .TableOfContents }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {{ .Content }}
             </div>
         </div>
     </div>
 </article>
+
+<section class="comments">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{ template "_internal/disqus.html" . }}
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {{ template "chrome/footer.html" . }}

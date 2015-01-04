@@ -8,8 +8,8 @@
                 <div class="site-heading">
                     <h1>{{ .Site.Title }}</h1>
                     <hr class="small">
-                    <span class="subheading">{{ .Site.Params.Subtitle }}</span>
-                    <hr class="small">
+                    <span class="subheading hidden-xs">{{ .Site.Params.Subtitle }}</span>
+                    <hr class="small hidden-xs">
                     <ul class="list-inline text-center margin-top">
                         {{ if .Site.Params.TwitterUser }}
                         <li>
@@ -65,10 +65,9 @@
                     <h2 class="post-title">
                         {{ .Title }}
                     </h2>
-                    <h3 class="post-subtitle">
+                    <h4 class="post-subtitle">
                         {{ .Description }}
-                    </h3>
-
+                    </h4>
                 </a>
                 <p class="post-meta">
                     <small class="text-muted">

@@ -16,7 +16,7 @@ While working on a project that does a lot of symlinking by default, the need to
 
 Fortunately, it's not too hard. The solution [came from this post's answers](http://magento.stackexchange.com/questions/4641/how-to-git-ignore-symlinks-on-a-magento-module-installed-by-composer?stw=2). Thanks guys!
 
-## The Command
+# The Command
 
 Just run the following command from the base directory of your Git repository, and it will automagically add all the symlinked files to the base `.gitignore` file.
 
@@ -27,7 +27,7 @@ for f in $(git status --porcelain | grep '^??' | sed 's/^?? //'); do
 done
 ```
 
-## Conclusion
+# Conclusion
 
 As noted over on StackExchange, you can run this command whenever the symlinked files change, or as often as you need:
 

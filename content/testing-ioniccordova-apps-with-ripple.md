@@ -22,7 +22,7 @@ We'll assume that you've already met these prerequisites:
 2. Already have [NPM cordova package installed](https://cordova.apache.org/docs/en/2.9.0/guide_cli_index.md.html).
 3. Are using Linux or OSX. (Windows is currently not supported for this configuration).
 
-## 1. Install Ripple
+# 1. Install Ripple
 
 There's a [Ripple extension for Google Chrome](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en). It doesn't support the latest versions of PhoneGap. Don't use it.
 
@@ -34,9 +34,7 @@ The install is very simple. Just run:
 
     sudo npm install -g ripple-emulator
 
-
-
-## 2. Preparing/Building the Project
+# 2. Preparing/Building the Project
 
 > Note: We'll assume you're using Android as your platform. If not, substitue `android` in the examples with the platform of your choice, like `ios`, `firefoxos`, etc.
 
@@ -44,9 +42,7 @@ Next, you'll need to prepare the static files. Make sure your in the project dir
 
     cordova prepare android
     
-
-
-## 3. Serving the Files
+# 3. Serving the Files
 
 Now that the files for your platform have been prepared, you can start the emulator. That's done by running:
 
@@ -68,8 +64,7 @@ You should see a screen similar to this when opening up the link:
 
 *For some unknow reason, Chrome seems to work better than Firefox at the moment. Take that with a grain of salt, though.*
 
-
-## 4. Watch Project Files
+# 4. Watch Project Files
 
 > Note: We'll use [GulpJS](//gulpjs.org) in this example. You could use any kind of file watcher, like [GruntJS](http://gruntjs.com/), etc., if preferred. The idea would be the same.
 
@@ -99,8 +94,7 @@ This GulpJS setup watches all the HTML, CSS, and JavaScript files in your projec
 
 You may find that you need to watch more or less files according to your needs.
 
-
-## Using the Ripple Emulator Proxy
+# Using the Ripple Emulator Proxy
 
 Serving the static files over the network is possible with the `ripple emulate --remote` command.
 
@@ -110,7 +104,7 @@ Once the static file server is up and running, just replace the `ripple emulate`
 
 The ripple emulator will fetch the files from the remove location via proxy and serve them up as if they were on your local machine.
 
-## Conclusion
+# Conclusion
 
 Whew! That was a bit of work, but you should now be able to test native app functions, like camera, geolocation, and more in your browser without the need for an emulator or a physical device.
 

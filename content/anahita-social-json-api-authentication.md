@@ -24,7 +24,7 @@ That's super, as there's no need to worry about using cookies for authentication
 
 So what needs to be hacked? Read on.
 
-## The HTTP Auth Header
+# The HTTP Auth Header
 
 The HTTP authentication header required [is standard](https://en.wikipedia.org/wiki/Basic_access_authentication). So that means you need to send a header with your API request that looks like this:
 
@@ -52,9 +52,9 @@ http://user:password@my.anahita.site/
 All the above methods will work, so pick the that's appropriate for your needs.
 
 
-## Compatibility Hacks
+##Compatibility Hacks
 
-### Teaching Anahita to check the HTTP Authentication
+## Teaching Anahita to check the HTTP Authentication
 
 Out of the box, Anahita doesn't check the HTTP authentication headers unless the request is specifically formed with the `Accept: application/json` header. We'll change that now.
 
@@ -78,7 +78,7 @@ if ( KRequest::has('server.PHP_AUTH_USER')
 
 If you want, you can just replace the entire file with [this gist](https://gist.github.com/bradberger/72be65348504363e9dd7) which is up-to-date as of Anahita 3.0.3.
 
-### Adding `WWW-Authenticate` headers
+## Adding `WWW-Authenticate` headers
 
 By itself, it works. Some third-party libraries require the `WWW-Authenticate: Basic` header to be sent, though, when the client is not authenicated.
 
@@ -109,12 +109,12 @@ The `realm="Anahita"` can be adjusted. Replace `Anahita` with whatever realm nam
 
 The other slight modification adds compatibility for passwords that contain the `:` character, as the Nooku implementation of the parsing of the base64 encoded username/password pair would not support that.
 
-## Security
+# Security
 
 As you already are aware, the base64 encoding is just that - encoding and not encryption. So make sure you send all requests via SSL so as to not expose the username/password.
 
 
-## Conclusion
+# Conclusion
 
 So there you have it! With a simple adjustment, your Anahita install now is a lot more compatible with standard code.
 

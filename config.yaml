@@ -6,8 +6,10 @@ contentdir: "content"
 layoutdir: "layouts"
 publishdir: "public"
 builddrafts: false
-baseurl: 'http://localhost:1313'
+baseurl: 'https://bradb.net'
 title: 'Brad Berger'
+canonifyurls: false
+disqusShortname: bradberger
 copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 languageCode: "en-us"
 author:

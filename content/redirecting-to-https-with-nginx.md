@@ -15,7 +15,7 @@ Secure, encrypted communications are more important now than ever before. As a r
 
 How can this be accomplished?
 
-## Nginx Configuration
+# Nginx Configuration
 
 This one a bit more difficult to track down, as there seem to be a lot of ideas out there.
 
@@ -39,9 +39,9 @@ server {
 }
 ```
 
-## Apache
+# Apache
 
-### Via .htaccess
+## Via .htaccess
 
 To set up the redirect via a `.htaccess` file, the example below assumes you're using virtual hosts:
 
@@ -54,13 +54,13 @@ To set up the redirect via a `.htaccess` file, the example below assumes you're 
 
 This is a very simple way to handle the redirect, and doesn't even require a `DocumentRoot` at all.
 
-## CloudFlare/Proxy Notes
+# CloudFlare/Proxy Notes
 
 If you're using CloudFlare or any other kind of proxy service, note that the above examples will work only if the proxy server is capable of making the requests via https. 
 
 For CloudFlare in particular, this means making sure the SSL setting is "Full SSL" or "Full SSL (Strict)". Using the "Flexible SSL" setting will result in endless redirects.
 
-## Conclusion
+# Conclusion
 
 As mentioned at the outset, securing web traffic is important. It's neither difficult nor expensive. If you aren't using https for all your web traffic, consider making the switch. 
 

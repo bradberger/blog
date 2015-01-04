@@ -23,7 +23,7 @@ We'll assume you're already familiar with the [Karma](//karma-runner.github.io/)
 
 We'll also assume your handly with [NPM](//www.npmjs.org/) and [Bower](//bower.io), too.
 
-## Required Includes
+# Required Includes
 
 You'll need at least one AngularJS library which isn't packaged with Ionic: the `angular-mocks` library. Go ahead and install it via [Bower](//bower.io).
 
@@ -35,7 +35,7 @@ Failed to instantiate module ngMock... Unknown provider: $$rAFProvider
 
 To get around that, you'll need to install the `angular-mock` version at the same version of the currently existing `angular` packages. 
 
-### Replacing `ionic.bundle.js`
+## Replacing `ionic.bundle.js`
 
 Better yet, avoid using the packaged Ionic  bundles - the `ionic.bundle.js` and `ionic.bundle.min.js` files.
 
@@ -75,7 +75,7 @@ As of time of writing, Angular 1.2.20 was working well with Ionic 1.0.0. So if y
 
 Once you lock down the Bower dependencies, make sure you run a `bower update` to fetch and install the latest versions.
 
-## Setting Up Your First `$scope` Test
+# Setting Up Your First `$scope` Test
 
 After getting everything set up, we're on to writing the first unit test.
 
@@ -137,14 +137,11 @@ describe("Unit Testing Examples", function () {
 
 If the above steps worked, you should have a great template to use to set up unit tests for all of your controllers. Just don't forget to replace the controlller names in each new file.
 
-#### Ensure You Have the Correct `$scope` Variable
+## Ensure You Have the Correct `$scope` Variable
 
 To make the above test a bit more practical, choose anything attached to your `$scope` - a variable, a function, etc., and add it on to the `expect($scope)` line above. For example, if you used a `$scope.init` function, change `expect($scope).toBeDefined()` to `expect($scope.init).toBeDefined()`. That should ensure the test is working, and the `$scope` variable is not the one init'd at the top of the test with the `var` keyword.
 
-
-
-
-## Conclusion
+# Conclusion
 
 There's very little documentation about unit testing with Ionic, so hopefully this will help get you up to speed. If you're not familiar with writing test with Karma and Jasmine, be sure to read up on them first so you'll understand what's going on here.
 

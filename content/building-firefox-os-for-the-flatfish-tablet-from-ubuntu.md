@@ -31,7 +31,7 @@ You'll also need various Android tools as well, so make sure they are installed.
 	sudo apt-get install android-tools-adb android-tools-fastboot
     
 
-## Flashing the Bootloader
+# Flashing the Bootloader
 
 If you haven't already flashed the bootloader and loaded at least version 2 of Firefox OS on the device, [follow the directions here](http://openmoz.wordpress.com/2014/07/13/flash-firefox-os-2-1-into-your-tablet/) now. They work, and don't require any special tools!
 
@@ -47,14 +47,14 @@ THe process in a nutshell:
 
 It should work, and flash the new bootloader and v2.1 of Firefox OS on your device.
 
-## Build Process
+# Build Process
 
-### Special Requirements
+## Special Requirements
 
 Make 3.81 or 3.82
 Autoconf 2.13
 
-#### Setting up `make`
+## Setting up `make`
 
 The build process requires an older version of make. The 4.0 branch is shipped with Ubuntu 14.10, so you'll need to fetch the previous version first. You can [download Make 3.81 here](http://packages.ubuntu.com/trusty/make).
 
@@ -67,13 +67,13 @@ First, remove the previous version (if installed) and install the package you ju
 
 
 
-#### Setting Up Autoconf
+## Setting Up Autoconf
 
 The build process requires a specific version of `autoconf`. Thankfully, it's easy to install. If you installed all the prerequisites mentioned earlier, it's already done. If not, run: 
     
     apt-get install make2.13
 
-#### Setting up udev
+## Setting up udev
 
 Make sure the file `/etc/udev/rules.d/51-android.rule` exists, and it has at least the following lines in it:
 
@@ -83,7 +83,7 @@ Make sure the file `/etc/udev/rules.d/51-android.rule` exists, and it has at lea
 If it doesn't exist, create it.
 
 
-### Downloading the source
+## Downloading the source
 
 You'll need `git` for this. Switch into a directory where you'll want the source to stay.
 
@@ -93,14 +93,14 @@ You'll need `git` for this. Switch into a directory where you'll want the source
     
 The source code is going to be around 11 GB of space, so it will likely take a while to download.
 
-### The Build Commands
+## The Build Commands
 
 After that, you should (hopefully) be able to build and flash the system. Again, [refer to the official docs](https://wiki.mozilla.org/FirefoxOS/TCP/Patching#Start_to_build_flatfish), but it's basically the following commands from the source code directory:
 
 		GAIA_DEVICE_TYPE=tablet B2G_SYSTEM_APPS=1 B2G_UPDATER=1 ./build.sh
         ./flash.sh
         
-### Subsequent Source Code Updates
+## Subsequent Source Code Updates
 
 When updating the source in the future, run the commands:
 
@@ -109,7 +109,7 @@ When updating the source in the future, run the commands:
     
 As the OS is under heavy development, it's a good idea to pull the latest changes *before each build*.
 
-## Conclusion
+# Conclusion
 
 Whew! There are a lot of steps involved. Hopefully you got it working! If not, feel free to reach out for help here, or on the Mozilla IRC channels. 
 
