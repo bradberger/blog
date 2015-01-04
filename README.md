@@ -1,17 +1,11 @@
-## Building
+# Personal Blog
 
-There are six simple build steps, all bash scripts.
-They should be run in this order, and the build process
-should stop if any one in the chain returns failure.
+This is the code for my personal blog at [bradb.net](//bradb.net).
+It's statically generated using [Hugo](//gohugo.io). It's optimized for
+performance, including delivering of
+[above-the-fold CSS](http://addyosmani.com/blog/detecting-critical-above-the-fold-css-with-paul-kinlan-video/)
+inline. Basic JavaScript is delivered inline, as well.
 
-1. `./01-install-go.bash`
-2. `./02-install-hugo.bash`
-3. `./03-install-npm.bash`
-4. `./04-bower.bash`
-5. `./05-build.bash`
-6. `./06-publish.bash`
-
-## Testing
-
-Gulp and Hugo are needed. Run both at the same time
-with `gulp` and `hugo --watch`, both from the root directory.
+Use it as a basis for your next blog if your interested in a high performance,
+statically generated, [GulpJS](//gulpjs.org) blog, static website, web app, or
+hybrid app.
