@@ -129,9 +129,11 @@ It's an easy way to keep your `gulpfile.js` nice and clean.
 
 # Known Issues
 
-There is a known issue with SSH connections unexpectedly ending under certain condidtions. Through experience, this seems to be direcly related to the size of the file.
+~~There is a known issue with SSH connections unexpectedly ending under certain condidtions. Through experience, this seems to be direcly related to the size of the file.~~
 
-Right now there doesn't seem to be a workaround for this. It shouldn't be a major issue unless working with very large files. I've only run into it so far when trying to bundle several libraries together - jQuery, AngularJS, Bootstrap, shims, and custom code. (Just jQuery/Angular/Bootstrap works, for instance).
+~~Right now there doesn't seem to be a workaround for this. It shouldn't be a major issue unless working with very large files. I've only run into it so far when trying to bundle several libraries together - jQuery, AngularJS, Bootstrap, shims, and custom code. (Just jQuery/Angular/Bootstrap works, for instance).~~
+
+Update: This [is solved](https://www.npmjs.com/package/gulp-sftp#error-sftp-abrupt-closure). Great work, guys!
 
 # Conclusion
 

@@ -13,7 +13,10 @@ var gulp = require("gulp"),
     uncss = require("gulp-uncss"),
     exec = require("child_process").exec,
     jshint = require("gulp-jshint"),
+    del = require("del"),
     runSequence = require("run-sequence"),
+    shell = require("gulp-shell"),
+    rsync = require("gulp-rsync"),
     fs = require("fs");
 
 
@@ -22,13 +25,9 @@ function p(path) {
 }
 
 gulp.task("minify-html", function () {
-    return gulp.src("./public/**/*.html")
+    return gulp.src(p("public/**/*.html"))
         .pipe(minifyHTML({comments: true, spare: true}))
         .pipe(gulp.dest("./public"));
-});
-
-gulp.task("upload", ["minify-html"], function () {
-
 });
 
 gulp.task("less:above", function() {
@@ -39,14 +38,15 @@ gulp.task("less:above", function() {
         })
         .pipe(uncss({
             html: [
-                "./public/index.html",
-                "./public/promise-based-js-script-loader/index.html",
-                "./public/tags/about/index.html",
-                "./public/categories/pages/index.html"
-            ]
+                p("public/index.html"),
+                p("public/promise-based-js-script-loader/index.html"),
+                p("public/tags/about/index.html"),
+                p("public/categories/pages/index.html")
+            ],
+            ignore: [".highlight", ".highlight pre"]
         }))
         .pipe(minifyCSS({keepSpecialComments: 0}))
-        .pipe(gulp.dest(p("./static/css")));
+        .pipe(gulp.dest(p("static/css")));
 });
 
 gulp.task("html:above", function() {
@@ -57,16 +57,17 @@ gulp.task("html:above", function() {
         .pipe(gulp.dest("./layouts/chrome"));
 });
 
-gulp.task("less", function () {
+gulp.task("less:standard", function () {
     return gulp.src("./src/less/style.less")
         .pipe(less())
         .pipe(uncss({
             html: [
-                "./public/index.html",
-                "./public/promise-based-js-script-loader/index.html",
-                "./public/tags/about/index.html",
-                "./public/categories/pages/index.html"
-            ]
+                p("public/index.html"),
+                p("public/promise-based-js-script-loader/index.html"),
+                p("public/tags/about/index.html"),
+                p("public/categories/pages/index.html")
+            ],
+            ignore: [".highlight pre"]
         }))
         .pipe(minifyCSS({keepSpecialComments: 0}))
         .on("error", function (err) {
@@ -76,24 +77,8 @@ gulp.task("less", function () {
 
 });
 
-gulp.task("less:all", ["less:above"], function () {
-    runSequence("less:above", "less", "html:above");
-     return gulp.src("./src/less/style.less")
-        .pipe(less())
-        .pipe(uncss({
-            html: [
-                "./public/index.html",
-                "./public/promise-based-js-script-loader/index.html",
-                "./public/tags/about/index.html",
-                "./public/categories/pages/index.html"
-            ]
-        }))
-        .pipe(minifyCSS({keepSpecialComments: 0}))
-        .on("error", function (err) {
-            console.error(err.message);
-        })
-        .pipe(gulp.dest("./static/css"));
-
+gulp.task("less", function () {
+    return runSequence("less:above", "less:standard", "html:above");
 });
 
 gulp.task("svg-min", function () {
@@ -127,7 +112,7 @@ gulp.task("jshint", function() {
 });
 
 gulp.task("pre-build", [
-    "image-min", "svg-min", "less:all", "js:init"
+    "image-min", "svg-min", "less", "js:init"
 ]);
 
 gulp.task("test", function () {
@@ -146,10 +131,41 @@ gulp.task("test", function () {
 gulp.task("post-build", ["minify-html"]);
 
 gulp.task("watch", function () {
-    gulp.watch("./src/less/**/*.less", ["less:all"]);
+    gulp.watch("./src/less/**/*.less", ["less"]);
     gulp.watch("./src/js/init.js", ["js:init"]);
     gulp.watch("./src/img/**/*", ["image-min"]);
     gulp.watch("./static/css/above.css", ["html:above"]);
+});
+
+gulp.task("clean", function() {
+    return del.sync(["public/**"]);
+});
+
+gulp.task("hugo", function() {
+    return gulp.src('', {read: false})
+        .pipe(shell(["hugo"]));
+});
+
+gulp.task("upload", function() {
+    var c = require(p("private.js"));
+    return gulp.src("public/**/*")
+        .pipe(rsync(c.config));
+});
+
+gulp.task("build", function() {
+    return runSequence([
+        "hugo",
+        "pre-build",
+        "test",
+        "post-build"
+    ]);
+});
+
+gulp.task("deploy", function() {
+    return runSequence(
+        "build",
+        "upload"
+    );
 });
 
 gulp.task("default", ["build", "watch"]);
