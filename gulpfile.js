@@ -14,9 +14,12 @@ var gulp = require("gulp"),
     exec = require("child_process").exec,
     jshint = require("gulp-jshint"),
     del = require("del"),
+    autoprefixer = require("gulp-autoprefixer"),
     runSequence = require("run-sequence"),
     shell = require("gulp-shell"),
     rsync = require("gulp-rsync"),
+    glob = require("glob"),
+    vinylPaths = require("vinyl-paths"),
     fs = require("fs");
 
 
@@ -27,7 +30,7 @@ function p(path) {
 gulp.task("minify-html", function () {
     return gulp.src(p("public/**/*.html"))
         .pipe(minifyHTML({comments: true, spare: true}))
-        .pipe(gulp.dest("./public"));
+        .pipe(gulp.dest(p("public")));
 });
 
 gulp.task("less:above", function() {
@@ -36,44 +39,34 @@ gulp.task("less:above", function() {
         .on("error", function (err) {
             console.error(err.message);
         })
+        .pipe(autoprefixer())
         .pipe(uncss({
-            html: [
-                p("public/index.html"),
-                p("public/promise-based-js-script-loader/index.html"),
-                p("public/tags/about/index.html"),
-                p("public/categories/pages/index.html")
-            ],
-            ignore: [".highlight", ".highlight pre"]
+            html: glob.sync(p("public/**/*.html"))
         }))
         .pipe(minifyCSS({keepSpecialComments: 0}))
         .pipe(gulp.dest(p("static/css")));
 });
 
 gulp.task("html:above", function() {
-    return gulp.src("./static/css/above.css")
+    return gulp.src(p("static/css/above.css"))
         .pipe(insert.prepend("<style>"))
         .pipe(insert.append("</style>"))
         .pipe(rename("above.html"))
-        .pipe(gulp.dest("./layouts/chrome"));
+        .pipe(gulp.dest(p("layouts/chrome")));
 });
 
 gulp.task("less:standard", function () {
-    return gulp.src("./src/less/style.less")
-        .pipe(less())
-        .pipe(uncss({
-            html: [
-                p("public/index.html"),
-                p("public/promise-based-js-script-loader/index.html"),
-                p("public/tags/about/index.html"),
-                p("public/categories/pages/index.html")
-            ],
-            ignore: [".highlight pre"]
-        }))
-        .pipe(minifyCSS({keepSpecialComments: 0}))
+    return gulp.src(p("src/less/style.less"))
         .on("error", function (err) {
             console.error(err.message);
         })
-        .pipe(gulp.dest("./static/css"));
+        .pipe(less())
+        .pipe(autoprefixer())
+        .pipe(uncss({
+            html: glob.sync(p("public/**/*.html"))
+        }))
+        .pipe(minifyCSS({keepSpecialComments: 0}))
+        .pipe(gulp.dest(p("static/css")));
 
 });
 
@@ -82,9 +75,9 @@ gulp.task("less", function () {
 });
 
 gulp.task("svg-min", function () {
-    return gulp.src("./src/svg/**/*.svg")
+    return gulp.src(p("src/svg/**/*.svg"))
         .pipe(svgmin())
-        .pipe(gulp.dest("./static/svg"));
+        .pipe(gulp.dest(p("static/svg")));
 });
 
 gulp.task("js:init", function () {
@@ -95,13 +88,13 @@ gulp.task("js:init", function () {
         .pipe(insert.prepend("<script>"))
         .pipe(insert.append("</script>"))
         .pipe(rename("scripts.html"))
-        .pipe(gulp.dest("./layouts/chrome"));
+        .pipe(gulp.dest(p("layouts/chrome")));
 });
 
 gulp.task("image-min", function () {
-    return gulp.src("./src/img/**/*")
+    return gulp.src(p("src/img/**/*"))
         .pipe(imagemin())
-        .pipe(gulp.dest("./static/img"));
+        .pipe(gulp.dest(p("static/img")));
 });
 
 
@@ -131,14 +124,16 @@ gulp.task("test", function () {
 gulp.task("post-build", ["minify-html"]);
 
 gulp.task("watch", function () {
-    gulp.watch("./src/less/**/*.less", ["less"]);
-    gulp.watch("./src/js/init.js", ["js:init"]);
-    gulp.watch("./src/img/**/*", ["image-min"]);
-    gulp.watch("./static/css/above.css", ["html:above"]);
+    gulp.watch(p("src/less/**/*.less"), ["less:standard"]);
+    gulp.watch(p("src/less/above.less"), ["less:above"]);
+    gulp.watch(p("src/js/init.js"), ["js:init"]);
+    gulp.watch(p("src/img/**/*"), ["image-min"]);
+    gulp.watch(p("static/css/above.css"), ["html:above"]);
 });
 
 gulp.task("clean", function() {
-    return del.sync(["public/**"]);
+    return gulp.src(p("public/*"))
+        .pipe(vinylPaths(del));
 });
 
 gulp.task("hugo", function() {
@@ -156,16 +151,12 @@ gulp.task("build", function() {
     return runSequence([
         "hugo",
         "pre-build",
-        "test",
-        "post-build"
-    ]);
+        "test"
+    ], "post-build");
 });
 
-gulp.task("deploy", function() {
-    return runSequence(
-        "build",
-        "upload"
-    );
-});
+//gulp.task("deploy", function() {
+//    return runSequence("build", "upload");
+//});
 
 gulp.task("default", ["build", "watch"]);

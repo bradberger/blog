@@ -24,6 +24,14 @@
                                 <a href="/tags/{{ . }}" class="label label-default spacer-left">{{ . }}</a>
                             {{ end }}
                         </small>
+                        <br>
+                        <small class="text-muted">
+                            Share:
+                            <a class="spacer-left" href="https://twitter.com?status={{ .Title | urlize }}%20by%20@{{ .Site.Params.TwitterUser }}%20{{ .Permalink | urlize }}"><i class="fa fa-twitter"></i></a>
+                            <a class="spacer-left" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlize }}"><i class="fa fa-facebook"></i></a>
+                            <a class="spacer-left" href="https://plus.google.com/share?url={{ .Permalink  | urlize }}"><i class="fa fa-google-plus"></i></a>
+                            <a class="spacer-left" href="https://www.linkedin.com/shareArticle?url={{ .Permalink  | urlize }}&title={{ .Title }}&summary={{ .Description }}"><i class="fa fa-linkedin"></i></a>
+                        </small>
                     </p>
                 </div>
             </div>
@@ -34,16 +42,51 @@
 <article>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-6 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-toc">
                     <h3>Table of Contents</h3>
                     {{ .TableOfContents }}
+
+                    <h4 class="share-header">Share:</h4>
+                    <p>
+                        <a class="spacer-left" href="https://twitter.com?status={{ .Title | urlize }}%20by%20@{{ .Site.Params.TwitterUser }}%20{{ .Permalink | urlize }}"><i class="fa fa-twitter"></i></a>
+                        <a class="spacer-left" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlize }}"><i class="fa fa-facebook"></i></a>
+                        <a class="spacer-left" href="https://plus.google.com/share?url={{ .Permalink  | urlize }}"><i class="fa fa-google-plus"></i></a>
+                        <a class="spacer-left" href="https://www.linkedin.com/shareArticle?url={{ .Permalink  | urlize }}&title={{ .Title }}&summary={{ .Description }}"><i class="fa fa-linkedin"></i></a>
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="support-heading"><small>Support this site</small></p>
+                        <a href="https://www.digitalocean.com/?refcode=3d052c86df61">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <img src="/img/digitalocean.png" alt="Digitalocean">
+                                    <p>Sign up for DigitalOcean hosting, get a <strong>$10 credit</strong>.
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 content">
                 {{ .Content }}
+            </div>
+        </div>
+        <div class="row margin-top">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-share">
+                    <span class="spacer-right">Share:</span>
+                    <a href="https://twitter.com?status={{ .Title | urlize }}%20by%20@{{ .Site.Params.TwitterUser }}%20{{ .Permalink | urlize }}"><i class="fa fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlize }}"><i class="fa fa-facebook"></i></a>
+                    <a href="https://plus.google.com/share?url={{ .Permalink  | urlize }}"><i class="fa fa-google-plus"></i></a>
+                    <a href="https://www.linkedin.com/shareArticle?url={{ .Permalink  | urlize }}&title={{ .Title }}&summary={{ .Description }}"><i class="fa fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </div>

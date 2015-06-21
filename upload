@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+gsutil rsync -dr public gs://bradb.net
+gsutil acl ch -r -u AllUsers:R gs://bradb.net
+gsutil web set -m index.html -e 404/index.html gs://bradb.net

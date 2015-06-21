@@ -16,7 +16,7 @@ If you're not familiar with JavaScript promises, you'll definitely want to check
 
 We're going to see how we can take advantage of promises to build a script loader in just a few lines of code.
 
-### The Basic Syntax of Promises
+# The Basic Syntax of Promises
 
 The result of any promise is accessed with the `then()` function. The first argument is the success callback, the second is the failure callback.
 

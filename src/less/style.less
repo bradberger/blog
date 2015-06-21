@@ -83,6 +83,16 @@ footer {
     text-align: center;
     margin-bottom: 0;
   }
+  .refer {
+    padding-bottom: 3.5em;
+    border-bottom: 1px solid @gray-light;
+    .fa {
+      font-size: 3em;
+    }
+  }
+  .spacer-right {
+    margin-right: 1em;
+  }
 }
 
 // -- Highlight Color Customization
@@ -122,4 +132,52 @@ body {
     background: transparent;
     color: #999;
   }
+}
+
+// -- Typography
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+  a {
+    text-decoration: underline;
+  }
+}
+
+a {
+  color: @gray-dark;
+  &:hover,
+  &:focus {
+    color: @brand-primary;
+  }
+}
+
+a img {
+  &:hover,
+  &:focus {
+    cursor: zoom-in;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.support-heading {
+  margin: 15px 0;
+  font-size: smaller;
+  text-transform: uppercase;
+}
+
+.content {
+  border-top: 1px solid @gray-light;
+  padding-top: 3em;
+  margin-top: 2em;
+}
+
+.post-toc {
+  padding-bottom: @padding-large-vertical;
+}
+
+.share-header {
+  margin-top: 2em;
 }

@@ -1,6 +1,6 @@
 ---
 title: "Installing APC and Xdebug on Ubuntu 14.04 LTS (Trusty Tahr)"
-description: "Get up and running with APC and Xdebug in the latest stable version of Ubuntu (outdated)"
+description: "Get up and running with APC and Xdebug in the latest stable version of Ubuntu"
 tags:
   - "php"
   - "xdebug"

@@ -6,7 +6,7 @@ tags:
   - "version-control"
   - "vcs"
   - "symlinks"
-date: "2014-09-30"
+date: "2014-09-29"
 categories:
   - "git"
 slug: "ignoring-symlinks-in-git-repos"
