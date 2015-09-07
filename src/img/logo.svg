@@ -7,34 +7,10 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    width="64"
    height="64"
-   id="svg3098"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="logo.svg">
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1053"
-     id="namedview13"
-     showgrid="false"
-     inkscape:zoom="3.6875"
-     inkscape:cx="-17.762712"
-     inkscape:cy="32"
-     inkscape:window-x="0"
-     inkscape:window-y="2"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g3942" />
+   id="svg3098">
   <defs
      id="defs3100" />
   <metadata
@@ -45,7 +21,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -60,7 +36,7 @@
            d="m 47.053572,25.008928 a 21.5625,21.5625 0 1 1 -43.1250003,0 21.5625,21.5625 0 1 1 43.1250003,0 z"
            transform="matrix(2.2608245,0,0,2.2608245,531.45585,679.01538)"
            id="path3053-7-5-3"
-           style="fill:#2b3a42;fill-opacity:1;stroke:none" />
+           style="fill:#2e3436;fill-opacity:1;stroke:none" />
         <path
            d="m 559.62451,538.19452 a 194.95944,194.95944 0 1 1 -389.91888,0 194.95944,194.95944 0 1 1 389.91888,0 z"
            transform="matrix(0.19139471,0,0,0.19139471,519.29172,632.54855)"

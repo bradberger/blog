@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+gulp pre-build
+gulp build
+hugo
+gulp post-build
+
 gsutil rsync -dr public gs://bradb.net
 gsutil acl ch -r -u AllUsers:R gs://bradb.net
-gsutil web set -m index.html -e 404/index.html gs://bradb.net
+gsutil web set -m index.html -e 404.html gs://bradb.net

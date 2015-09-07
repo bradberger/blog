@@ -1,7 +1,4 @@
 node_modules/
 .idea/
 public/
-src/bower_components/
-tmp/
-push.sh
-private.js
+bower_components/

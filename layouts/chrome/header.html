@@ -8,15 +8,9 @@
     <meta name="description" content="{{ .Description }}">
     <meta name="author" content="Brad Berger">
     <title>{{ .Site.Title }} - {{ .Title }}</title>
-    <link rel="shortcut icon" href="/img/logo-32.png">
     <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura|Arvo:700|Josefin+Slab:700">
     {{ template "chrome/above.html" . }}
-    {{ template "chrome/scripts.html" . }}
-    <noscript>
-        <link rel="stylesheet" href="/css/style.css">
-    </noscript>
-    {{ if .RSSLink }}
-    <link rel="alternate" href="{{ .RSSlink }}" type="application/rss+xml" title="{{ .Site.Title }}"/>
-    {{ end }}
+    {{ if .RSSLink }}<link rel="alternate" href="{{ .RSSlink }}" type="application/rss+xml" title="{{ .Site.Title }}">{{ end }}
 </head>
 <body>

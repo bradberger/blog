@@ -2,41 +2,35 @@
   "name": "bradb.net",
   "version": "1.0.0-rc1",
   "description": "Personal website.",
-  "main": "index.js",
-  "dependencies": {
-    "glob": "^4.3.2"
-  },
   "devDependencies": {
     "bower": "*",
-    "del": "^1.1.1",
-    "gulp": "~3.8",
-    "gulp-autoprefixer": "^2.0.0",
-    "gulp-changed": "^0.3.0",
-    "gulp-concat": "^2.2.0",
-    "gulp-imagemin": "^0.1.5",
-    "gulp-insert": "^0.4.0",
-    "gulp-jshint": "^1.9.0",
-    "gulp-less": "~3.0.3",
-    "gulp-livereload": "^1.2.0",
-    "gulp-minify-css": "^0.3.0",
-    "gulp-minify-html": "^0.1.3",
-    "gulp-rename": "^1.2.0",
-    "gulp-rsync": "0.0.5",
-    "gulp-shell": "^0.2.11",
-    "gulp-svgmin": "^0.4.4",
-    "gulp-uglify": "^0.2.1",
-    "gulp-uncss": "^0.4.1",
-    "gulp-watch": "^0.5.3",
-    "run-sequence": "^1.0.2",
-    "vinyl-paths": "^1.0.0"
+    "del": "~1.1.1",
+    "glob": "~4.4",
+    "gulp": "~3.9",
+    "gulp-autoprefixer": "~2.0",
+    "gulp-concat": "~2.2",
+    "gulp-imagemin": "~0.1.5",
+    "gulp-insert": "~0.4.0",
+    "gulp-jshint": "~1.9.0",
+    "gulp-livereload": "~1.2.0",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-minify-html": "~0.1.3",
+    "gulp-rename": "~1.2.0",
+    "gulp-sass": "~2.0.4",
+    "gulp-size": "^2.0.0",
+    "gulp-uglify": "~1.4",
+    "gulp-uncss": "~1",
+    "gulp-watch": "~0.5.3",
+    "run-sequence": "~1.1",
+    "vinyl-paths": "~1.0.0"
   },
   "scripts": {
     "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.org:bitolaco/bitola.co.git"
+    "url": "git@github.com:bradberger/blog.git"
   },
   "author": "Brad Berger <brad@bradb.net>",
-  "license": "unknown"
+  "license": "MPL-2.0"
 }

@@ -1,183 +1,40 @@
 <!-- Footer -->
 <footer>
-    <div class="banner bottom">
-        <div class="banner-container">
-            <div class="banner-inner">
-                <a href="https://www.digitalocean.com/?refcode=3d052c86df61">
-                    <span class="hidden-xs spacer-right">
-                        <i class="fa fa-cloud"></i>
-                        <span>+</span>
-                        <i class="fa fa-database"></i>
-                        <span>+</span>
-                        <i class="fa fa-money"></i>
-                        <span>=</span>
-                        <i class="fa fa-heart text-danger"></i>
-                    </span>
-                    <span class="spacer-left">
-                        Sign up for Digital Ocean hosting, get a $10 credit!
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 refer">
-                <p class="support-heading"><small>Partner links - Support this site</small></p>
-                <a href="https://www.digitalocean.com/?refcode=3d052c86df61">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <p>
-                                        <img src="/img/digitalocean-powered.png" alt="DigitalOcean">
-                                    </p>
-                                </div>
-                                <div class="col-xs-9">
-                                    <p>Need fast, reliable hosting? I use DigitalOcean exclusively for all my hosting, including this site.</p>
-                                    <p>Sign up with this link and receive a $10 credit for blazing, SSD-powered awesomeness.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="content-list">
+            <h3>Content by category and tag</h3>
+            <p>
+                <strong>Categories:</strong>
+                {{ range $key, $value := .Site.Taxonomies.categories.ByCount }}
+                <a href="/categories/{{ $value.Name }}">
+                    {{ $value.Name }} ({{ $value.Count }})
                 </a>
-                <a href="http://eepurl.com/8c8M9">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <p>
-                                        <img src="/img/mailchimp.png" alt="Mailchimp">
-                                    </p>
-                                </div>
-                                <div class="col-xs-9">
-                                    <p>
-                                        Mailchimp transactional email. Join more than 7 million people who use MailChimp
-                                        to design and send 500 million emails every day. Sign up, get
-                                        <strong>$30 credit</strong>.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {{ end }}
+            </p>
+            <p>
+                <strong>Tags:</strong>
+                {{ range $key, $value := .Site.Taxonomies.tags.ByCount }}
+                <a href="/tags/{{ $value.Name }}">
+                    {{ $value.Name }}
+                    <small>({{ $value.Count }})</small>
                 </a>
-            </div>
+                {{ end }}
+            </p>
         </div>
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="list-inline text-center">
+                {{ if .Site.Params.TwitterUser }}<li><a href="https://twitter.com/{{ .Site.Params.TwitterUser }}">Twitter</a></li>{{ end }}
+                {{ if .Site.Params.GitHubUser }}<li><a href="https://github.com/{{ .Site.Params.GitHubUser }}">GitHub</a></li>{{ end }}
+                {{ if .Site.Params.PublicEmail }}<li><a href="mailto:{{ .Site.Params.PublicEmail }}">Email</a></li>{{ end }}
+                {{ if .Site.Params.LinkedInUser }}<li><a href="https://linkedin.com/in/{{ .Site.Params.LinkedInUser }}">LinkedIn</a></li>{{ end }}
+                <li><a href="https://plus.google.com/100586062360183338245">Google+</a></li>
+                {{ if .RSSLink }}<li><a href="{{ .RSSLink }}">RSS</a></li>{{ end }}
+                <li><a href="https://coinbase.com/bradberger">Coinbase</a></li>
+            </ul>
+        </div>
 
-            </div>
-        </div>
-        <div class="row content-list">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h3>Content by category and tag</h3>
-                <p>
-                    <strong>Categories:</strong>
-                    {{ range $key, $value := .Site.Taxonomies.categories.ByCount }}
-                    <a href="/categories/{{ $value.Name }}" class="spacer-left hidden-xs">
-                        {{ $value.Name }} ({{ $value.Count }})
-                    </a>
-                    <a href="/categories/{{ $value.Name }}" class="btn btn-link visible-xs">
-                        {{ $value.Name }} ({{ $value.Count }})
-                    </a>
-                    {{ end }}
-                </p>
-                <p>
-                    <strong>Tags:</strong>
-                    {{ range $key, $value := .Site.Taxonomies.tags.ByCount }}
-                    <a href="/tags/{{ $value.Name }}" class="spacer-left hidden-xs">
-                        {{ $value.Name }}
-                        <small>({{ $value.Count }})</small>
-                    </a>
-                    <a href="/tags/{{ $value.Name }}" class="btn btn-link visible-xs">
-                        {{ $value.Name }}
-                        <small>({{ $value.Count }})</small>
-                    </a>
-                    {{ end }}
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <hr>
-                <ul class="list-inline text-center">
-                    {{ if .Site.Params.TwitterUser }}
-                    <li>
-                        <a href="https://twitter.com/{{ .Site.Params.TwitterUser }}">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    {{ end }}
-                    {{ if .Site.Params.GitHubUser }}
-                    <li>
-                        <a href="https://github.com/{{ .Site.Params.GitHubUser }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {{ end }}
-                    {{ if .Site.Params.PublicEmail }}
-                    <li>
-                        <a href="mailto:{{ .Site.Params.PublicEmail }}">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-send fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    {{ end }}
-                    {{ if .Site.Params.LinkedInUser }}
-                    <li>
-                        <a href="https://linkedin.com/in/{{ .Site.Params.LinkedInUser }}">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                        </a>
-                    </li>
-                    {{ end }}
-                    {{ if .RSSLink }}
-                    <li>
-                        <a href="{{ .RSSLink }}">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    {{ end }}
-                    <li>
-                        <a href="https://bitola.co">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-code fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://coinbase.com/bradberger">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-bitcoin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p class="copyright margin-top">
-                    <a rel="license" class="h3" href="//creativecommons.org/licenses/by/4.0/">
-                        <i class="fa fa-cc fa-lg"></i> Creative Commons 4.0
-                    </a>
-                </p>
-            </div>
-        </div>
+        <p class="copyright margin-top">
+            <a rel="license" class="h3" href="//creativecommons.org/licenses/by/4.0/">Creative Commons 4.0</a>
+        </p>
     </div>
 </footer>

@@ -5,16 +5,10 @@
         "Brad Berger <brad@bradb.net>"
     ],
     "description": "Personal Hugo powered blog at bradb.net",
-    "dependencies": {
-        "bootstrap": "~3.1",
-        "angular": "~1.3",
-        "angular-touch": "~1.3",
-        "angular-mocks": "~1.3",
-        "angular-route": "~1.3",
-        "angular-material": "*",
-        "fontawesome": "~4.2"
+    "devDependencies": {
+        "skeleton-scss": "*"
     },
-    "license": "MPL",
+    "license": "MPL-2.0",
     "private": true,
     "ignore": [
         "**/.*",

@@ -1,46 +1,35 @@
 {{ template "chrome/header.html" . }}
 {{ template "chrome/menu.html" . }}
 
-<div class="subhead">
-    <div class="container">
-        <h3>Blog</h3>
-    </div>
+<div class="container top">
+    <h1>Blog</h1>
+    <p>You'll find the most recent articles listed first.</p>
+    <hr>
 </div>
 
+<!-- Main Content -->
 <div class="container">
-    <div class="row">
-        <div class="col-sm-7">
-            <div class="page-header">
-                <h1 class="post-title">
-                    Blog
-                </h1>
-            </div>
-            {{ range first 10 .Data.Pages }}
-            <section class="post post-preview">
-                <header class="post-header home">
-                    <h2 class="post-title">
-                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                    </h2>
-                    <h4 class="post-description">{{ .Description }}</h4>
-                    <h5 class="post-meta-info">
-                        {{ .Date.Format "Monday Jan 2, 2006" }}
-                        <span>{{ .ReadingTime }} minute read, ~{{ .FuzzyWordCount }} words</span>
-                    </h5>
-                </header>
-                <p>{{ .Summary }}</p>
-                <p class="text-center margin-top">
-                    <a class="btn btn-default" href="{{ .Permalink }}">Read more</a>
-                </p>
-            </section>
-            {{ end }}
-            <div class="margin-top">&nbsp;</div>
-        </div>
+    {{range first 10 .Data.Pages}}
+    <div class="post-preview">
+        <h2>{{ .Title }}</h2>
+        <h4>{{ .Description }}</h4>
+        <h5>
+          {{ .Date.Format "Monday Jan 2, 2006" }}
+          &mdash;
+          {{ .ReadingTime }} minute read
+          &mdash;
+          {{ .WordCount }} words
+        </h5>
+        <p>
+          {{ .Summary }}
+        </p>
+        <p class="text-center">
+          <a class="button" href="{{.RelPermalink}}">Read More</a>
+        </p>
 
-        <div class="col-sm-4 col-sm-offset-1">
-            {{ partial "sidebar.html" . }}
-        </div>
     </div>
+    <hr>
+    {{end}}
 </div>
 
-{{ partials "footer.html" . }}
-
+{{ template "chrome/footer.html" . }}
