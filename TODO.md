@@ -5,6 +5,7 @@ A list of ideas for future posts, so I don't forget:
 - [ ] INARA donations backend post
 - [ ] Using PHP associative arrays selectively
 - [ ] Automatically Deploying a Website to Google Cloud Storage via SemaphoreCI
+- [ ] MQTT usage/awareness post
 
 ## Mailgun/Gmail Setup
 
