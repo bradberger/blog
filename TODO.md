@@ -6,6 +6,7 @@ A list of ideas for future posts, so I don't forget:
 - [ ] Using PHP associative arrays selectively
 - [ ] Automatically Deploying a Website to Google Cloud Storage via SemaphoreCI
 - [ ] MQTT usage/awareness post
+- [ ] StartSSL and Google App Engine (2048 bit key, concat process)
 
 ## Mailgun/Gmail Setup
 
